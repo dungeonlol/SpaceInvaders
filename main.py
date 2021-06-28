@@ -1,3 +1,4 @@
+from SpaceInvader import SpaceInvader
 
 if __name__ == '__main__':
-    pass
+    mySpaceInvader = SpaceInvader()
