@@ -6,7 +6,7 @@ from GameGenerics import *
 
 class SpaceInvader(GameGenerics):
 
-    # Constructor for SpaceInvader
+    ## Constructor for SpaceInvader
     # Initialize the class member variables.
     def __init__(self):
         super(SpaceInvader, self).__init__()
@@ -16,6 +16,7 @@ class SpaceInvader(GameGenerics):
         self.set_display_caption_and_icon("Space Invaders", "images/ufo.png")
         self.main_game_loop()
 
+    ## main_game_loop function sets the image of the rocket sprite, makes it so that everytime the sprite draws it erases the previous drawing, and initializes everything.
     def main_game_loop(self):
         active = True
         my_player = Player()
