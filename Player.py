@@ -65,4 +65,4 @@ class Player(GameGenerics):
     # param3 (y_axis): takes the y axis position which is used to draw image.
     # returns nothing
     def fire_bullets(self, screen, x_axis=0, y_axis=0):
-        screen.blit(self.bullet_img, (x_axis + 16, y_axis + 10))
+        screen.blit(self.bullet_img, (x_axis + 20, y_axis + 10))
