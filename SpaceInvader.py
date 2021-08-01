@@ -20,6 +20,8 @@ class SpaceInvader(GameGenerics):
         self.y_axis_enemy = []
         self.x_axis_bullet = 0
         self.y_axis_bullet = 480
+        self.score = 0
+        self.font = pygame.font.Font("freesansbold.ttf", 28)
         self.collided_enemy_index = 0
         self.set_display_caption_and_icon("Space Invaders", "images/ufo.png")
         self.background = pygame.image.load("images/background.png")
@@ -75,7 +77,7 @@ class SpaceInvader(GameGenerics):
                     self.y_axis_bullet = 480
 
             fire_state = self.handle_collisions(fire_state, self.is_collide())
-
+            self.show_score()
             pygame.display.update()
 
     def enemy_starting_pos(self):
@@ -98,6 +100,7 @@ class SpaceInvader(GameGenerics):
 
             if distance < 27:
                 self.collided_enemy_index = i
+                self.score += 1
                 return True
 
         return False
@@ -116,3 +119,7 @@ class SpaceInvader(GameGenerics):
                 self.y_axis_enemy[self.collided_enemy_index] = random.randint(0, 150)
 
         return fire_state
+
+    def show_score(self, text_x_axis=10, text_y_axis=10):
+        score = self.font.render("Score : " + str(self.score), True, (255, 255, 255))
+        self.screen.blit(score, (text_x_axis, text_y_axis))
