@@ -92,7 +92,8 @@ class SpaceInvader(GameGenerics):
             fire_state = self.handle_collisions(fire_state, self.is_collide())
             self.show_score()
             pygame.display.update()
-
+    ## enemy_starting_pos function gives random points in the x and y axis used to spawn enemies randomly
+    # returns nothing
     def enemy_starting_pos(self):
 
         for i in range(self.number_of_enemies):
@@ -135,10 +136,16 @@ class SpaceInvader(GameGenerics):
 
         return fire_state
 
+    ## show_score function adds the ability to display the player's score
+    # param1 (text_x_axis) takes a reference to the x location of the text default value 10
+    # param2 (text_y_axis) takes a reference to the y location of the text default value 10
+    # returns nothing
     def show_score(self, text_x_axis=10, text_y_axis=10):
         score = self.font.render("Score : " + str(self.score), True, (255, 255, 255))
         self.screen.blit(score, (text_x_axis, text_y_axis))
 
+    ## game_over_screen function adds the ability to display a game over screen
+    # returns nothing
     def game_over_screen(self):
         game_over_font = pygame.font.Font("freesansbold.ttf", 64)
         game_over_text = game_over_font.render("Game Over", True, (255, 255, 255))
