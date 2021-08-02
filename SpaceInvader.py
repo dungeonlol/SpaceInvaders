@@ -35,6 +35,9 @@ class SpaceInvader(GameGenerics):
         my_enemy = Enemy()
         changes = 0
         fire_state = "ready"
+        mixer.music.set_volume(1)
+        mixer.music.load("sounds/backgroundmusic.wav")
+        mixer.music.play(-1)
 
         while active:
             self.screen.blit(self.background, (0, 0))
@@ -63,6 +66,16 @@ class SpaceInvader(GameGenerics):
                 if move_down == 40:
                     for j in range(self.number_of_enemies):
                         self.y_axis_enemy[j] += 40
+
+                # Handles logic for game over screen
+                # If our spaceship y axis position is 480 the game will end.
+
+                if self.y_axis_enemy[i] > 480:
+
+                    for k in range(self.number_of_enemies):
+                        self.y_axis_enemy[k] = 700
+                        self.game_over_screen()
+                    break
 
                 my_enemy.enemy(self.screen, self.x_axis_enemy[i], self.y_axis_enemy[i])
 
@@ -101,6 +114,8 @@ class SpaceInvader(GameGenerics):
             if distance < 27:
                 self.collided_enemy_index = i
                 self.score += 1
+                explosion_sound = mixer.Sound("sounds/explosion.wav")
+                explosion_sound.play()
                 return True
 
         return False
@@ -123,3 +138,8 @@ class SpaceInvader(GameGenerics):
     def show_score(self, text_x_axis=10, text_y_axis=10):
         score = self.font.render("Score : " + str(self.score), True, (255, 255, 255))
         self.screen.blit(score, (text_x_axis, text_y_axis))
+
+    def game_over_screen(self):
+        game_over_font = pygame.font.Font("freesansbold.ttf", 64)
+        game_over_text = game_over_font.render("Game Over", True, (255, 255, 255))
+        self.screen.blit(game_over_text, (200, 250))

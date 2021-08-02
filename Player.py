@@ -36,6 +36,8 @@ class Player(GameGenerics):
             if fire_state == "ready":
                 if event.key == pygame.K_SPACE:
                     fire_state = "fire"
+                    bullet_sound = mixer.Sound("sounds/laser.wav")
+                    bullet_sound.play()
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
