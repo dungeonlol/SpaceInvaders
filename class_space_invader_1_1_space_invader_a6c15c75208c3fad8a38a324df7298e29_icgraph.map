@@ -1,0 +1,4 @@
+<map id="show_score" name="show_score">
+<area shape="rect" id="node1" title="show_score function adds the ability to display the player&#39;s score param1 (text_x_axis) takes a refer..." alt="" coords="173,5,265,32"/>
+<area shape="rect" id="node2" href="$class_space_invader_1_1_space_invader.html#a68c8800e3cf045b20095296f7895081e" title="main_game_loop function handles all the operations of the game." alt="" coords="5,5,125,32"/>
+</map>

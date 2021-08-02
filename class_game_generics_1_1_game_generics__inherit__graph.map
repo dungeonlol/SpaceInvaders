@@ -1,0 +1,6 @@
+<map id="GameGenerics" name="GameGenerics">
+<area shape="rect" id="node1" title=" " alt="" coords="203,5,349,141"/>
+<area shape="rect" id="node2" href="$class_enemy_1_1_enemy.html" title=" " alt="" coords="5,263,181,443"/>
+<area shape="rect" id="node3" href="$class_player_1_1_player.html" title=" " alt="" coords="205,248,347,457"/>
+<area shape="rect" id="node4" href="$class_space_invader_1_1_space_invader.html" title=" " alt="" coords="371,189,530,516"/>
+</map>
